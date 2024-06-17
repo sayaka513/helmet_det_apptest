@@ -103,7 +103,14 @@ ctx = webrtc_streamer(
                     }, {
         "username": ice_servers_username,
         "credential": ice_servers_credential,
-        "urls": ice_servers_urls
+        "urls": [
+       "turn:ntk-turn-1.xirsys.com:80?transport=udp",
+       "turn:ntk-turn-1.xirsys.com:3478?transport=udp",
+       "turn:ntk-turn-1.xirsys.com:80?transport=tcp",
+       "turn:ntk-turn-1.xirsys.com:3478?transport=tcp",
+       "turns:ntk-turn-1.xirsys.com:443?transport=tcp",
+       "turns:ntk-turn-1.xirsys.com:5349?transport=tcp"
+   ]
                     }]
                         },
     async_processing=True,
