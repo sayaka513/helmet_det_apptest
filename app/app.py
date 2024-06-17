@@ -98,7 +98,7 @@ def video_frame_callback(frame):
 ctx = webrtc_streamer(
     key="example",
     video_frame_callback=video_frame_callback,
-    rtc_configuration = {
+    rtc_configuration = RTCConfiguration({
     "iceServers": [{
         "urls": ["stun:ntk-turn-1.xirsys.com"]
     },{
@@ -113,7 +113,7 @@ ctx = webrtc_streamer(
        "turns:ntk-turn-1.xirsys.com:5349?transport=tcp"
    ]
                     }]
-                        },
+                        }),
     async_processing=True,
     media_stream_constraints={"video": True, "audio": False},  # Disable audio
 )
