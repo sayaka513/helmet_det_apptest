@@ -4,9 +4,7 @@ import av
 import cv2
 from ultralytics import YOLO
 import numpy as np
-import os
 
-load_dotenv()
 
 
 # Get ICE server credentials from environment variables
