@@ -98,8 +98,6 @@ ctx = webrtc_streamer(
     video_frame_callback=video_frame_callback,
     rtc_configuration = {
     "iceServers": [{
-        "urls": ["stun:ntk-turn-1.xirsys.com"]
-                    }, {
         "username": ice_servers_username,
         "credential": ice_servers_credential,
         "urls": [
