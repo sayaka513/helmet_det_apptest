@@ -9,6 +9,3 @@ Therefore, [Twilio Network Traversal Service](https://www.twilio.com/docs/stun-t
 これは[Le Wagon データサイエンス＆ＡＩプロジェクト batch#1639で作成されたコード](https://github.com/Nsayre/helmet_det)をStreamlit Community Cloud上で動けるように修正したものです。
 安全ヘルメット着用の有無をリアルタイムで検知するためにstreamlit-webrtcを使用していますが、Streamlit Community Cloud上で動かすためにはTURNサーバーが必要となります。
 そのため、Twilio Network Traversal Serviceを用いてTURNサーバーをセットしています。
-
-
-https://tygbv47rmjer2ftq9sfl8c.streamlit.app/
