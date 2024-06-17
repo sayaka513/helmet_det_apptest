@@ -4,12 +4,14 @@ import av
 import cv2
 from ultralytics import YOLO
 import numpy as np
-import os
+from twilio.rest import Client
 
 
-# Get ICE server credentials from environment variables
-ice_servers_username = st.secrets["general"]["ICE_SERVERS_USERNAME"]
-ice_servers_credential = st.secrets["general"]["ICE_SERVERS_CREDENTIAL"]
+# Get server credentials from environment variables
+account_sid = st.secrets["general"]["TWILIO_ACCOUNT_SID"]
+auth_token = st.secrets["general"]["TWILIO_AUTH_TOKEN"]
+client = Client(account_sid, auth_token)
+token = client.tokens.create()
 
 # Set up the Streamlit app
 st.set_page_config(page_title="Safety Helmet Detection", page_icon=":construction_worker:", layout="wide")
@@ -17,8 +19,6 @@ st.title(":construction_worker: Safety Helmet Detection")
 st.markdown("""
 This application detects safety helmets in real-time, using the YOLOv8 model. Adjust the settings in the sidebar to customize the detection.
 """)
-st.write(f"ICE Servers Username: {ice_servers_username}")
-st.write(f"ICE Servers Credential: {ice_servers_credential}")
 
 # Sidebar for additional settings and information
 st.sidebar.header("⚙️ Settings")
@@ -99,20 +99,7 @@ ctx = webrtc_streamer(
     key="example",
     video_frame_callback=video_frame_callback,
     rtc_configuration = {
-    "iceServers": [{
-        "urls": ["stun:ntk-turn-1.xirsys.com"]
-    },{
-        "username": ice_servers_username,
-        "credential": ice_servers_credential,
-        "urls": [
-       "turn:ntk-turn-1.xirsys.com:80?transport=udp",
-       "turn:ntk-turn-1.xirsys.com:3478?transport=udp",
-       "turn:ntk-turn-1.xirsys.com:80?transport=tcp",
-       "turn:ntk-turn-1.xirsys.com:3478?transport=tcp",
-       "turns:ntk-turn-1.xirsys.com:443?transport=tcp",
-       "turns:ntk-turn-1.xirsys.com:5349?transport=tcp"
-   ]
-                    }]
+    "iceServers": token.ice_servers
                         },
     async_processing=True,
     media_stream_constraints={"video": True, "audio": False},  # Disable audio
