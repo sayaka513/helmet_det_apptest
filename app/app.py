@@ -6,10 +6,12 @@ from ultralytics import YOLO
 import numpy as np
 import os
 
+load_dotenv()
+
 
 # Get ICE server credentials from environment variables
-ice_servers_username = os.getenv("ICE_SERVERS_USERNAME")
-ice_servers_credential = os.getenv("ICE_SERVERS_CREDENTIAL")
+ice_servers_username = st.secrets("ICE_SERVERS_USERNAME")
+ice_servers_credential = st.secrets("ICE_SERVERS_CREDENTIAL")
 
 # Set up the Streamlit app
 st.set_page_config(page_title="Safety Helmet Detection", page_icon=":construction_worker:", layout="wide")
