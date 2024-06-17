@@ -1,0 +1,7 @@
+.ipynb_checkpoints/*
+*.jpg
+*.png
+yolov5/
+raw_data/
+data/
+.env
