@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import webrtc_streamer, RTCConfiguration
 import av
 import cv2
 from ultralytics import YOLO
@@ -17,6 +17,8 @@ st.title(":construction_worker: Safety Helmet Detection")
 st.markdown("""
 This application detects safety helmets in real-time, using the YOLOv8 model. Adjust the settings in the sidebar to customize the detection.
 """)
+st.write(f"ICE Servers Username: {ice_servers_username}")
+st.write(f"ICE Servers Credential: {ice_servers_credential}")
 
 # Sidebar for additional settings and information
 st.sidebar.header("⚙️ Settings")
