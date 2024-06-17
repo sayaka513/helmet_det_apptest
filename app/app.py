@@ -10,7 +10,6 @@ import os
 # Get ICE server credentials from environment variables
 ice_servers_username = os.getenv("ICE_SERVERS_USERNAME")
 ice_servers_credential = os.getenv("ICE_SERVERS_CREDENTIAL")
-ice_servers_urls = os.getenv("ICE_SERVERS_URLS").split(',')
 
 # Set up the Streamlit app
 st.set_page_config(page_title="Safety Helmet Detection", page_icon=":construction_worker:", layout="wide")
