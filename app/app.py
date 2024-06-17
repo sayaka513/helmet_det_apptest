@@ -6,6 +6,7 @@ from ultralytics import YOLO
 import numpy as np
 import os
 
+
 # Get ICE server credentials from environment variables
 ice_servers_username = os.getenv("ICE_SERVERS_USERNAME")
 ice_servers_credential = os.getenv("ICE_SERVERS_CREDENTIAL")
@@ -98,6 +99,8 @@ ctx = webrtc_streamer(
     video_frame_callback=video_frame_callback,
     rtc_configuration = {
     "iceServers": [{
+        "urls": ["stun:ntk-turn-1.xirsys.com"]
+                    }, {
         "username": ice_servers_username,
         "credential": ice_servers_credential,
         "urls": ice_servers_urls
